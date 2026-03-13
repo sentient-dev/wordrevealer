@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WordRevealer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo:wght@500;700&family=Fraunces:opsz,wght@9..144,500;9..144,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <section id="authGate" class="auth-gate" aria-label="Login">
+      <form id="loginForm" class="auth-card">
+        <p class="eyebrow">Access Required</p>
+        <h2 class="auth-title">Login to Play</h2>
+        <p class="auth-subtitle">Enter two usernames and passwords to continue.</p>
+
+        <div class="auth-users">
+          <section class="auth-user">
+            <h3 class="auth-user-title">Login 1</h3>
+            <label for="usernameInput1">Username</label>
+            <input id="usernameInput1" type="text" autocomplete="username" required />
+
+            <label for="passwordInput1">Password</label>
+            <input id="passwordInput1" type="password" autocomplete="current-password" required />
+
+            <div id="passwordUpdateFields1" class="password-update-fields" hidden>
+              <label for="newPasswordInput1">New Password</label>
+              <input id="newPasswordInput1" type="password" autocomplete="new-password" />
+
+              <label for="confirmPasswordInput1">Confirm New Password</label>
+              <input id="confirmPasswordInput1" type="password" autocomplete="new-password" />
+            </div>
+          </section>
+
+          <section class="auth-user">
+            <h3 class="auth-user-title">Login 2</h3>
+            <label for="usernameInput2">Username</label>
+            <input id="usernameInput2" type="text" autocomplete="username" required />
+
+            <label for="passwordInput2">Password</label>
+            <input id="passwordInput2" type="password" autocomplete="current-password" required />
+
+            <div id="passwordUpdateFields2" class="password-update-fields" hidden>
+              <label for="newPasswordInput2">New Password</label>
+              <input id="newPasswordInput2" type="password" autocomplete="new-password" />
+
+              <label for="confirmPasswordInput2">Confirm New Password</label>
+              <input id="confirmPasswordInput2" type="password" autocomplete="new-password" />
+            </div>
+          </section>
+        </div>
+
+        <button id="loginBtn" type="submit">Login Both</button>
+        <p id="loginStatus" class="login-status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <main class="app-shell">
+      <section class="hero-card">
+        <p class="eyebrow">Web App Demo</p>
+        <h1>WordRevealer</h1>
+        <p class="subtitle">
+          Hide any phrase and reveal it one character at a time.
+        </p>
+
+        <section class="hud" aria-label="Game status">
+          <p class="hud-item">Score: <strong id="scoreValue">0</strong></p>
+          <p class="hud-item">Level: <strong id="levelValue">1</strong></p>
+        </section>
+
+        <div class="controls">
+          <label for="secretInput">Secret word or phrase</label>
+          <input
+            id="secretInput"
+            type="text"
+            placeholder="Try: ocean breeze"
+            autocomplete="off"
+            maxlength="60"
+          />
+
+          <div class="button-row">
+            <button id="setBtn" type="button">Set Secret</button>
+            <button id="revealBtn" type="button" disabled>Reveal Next</button>
+            <button id="resetBtn" type="button" disabled>Reset</button>
+            <button id="musicBtn" class="music-toggle" type="button">Music On</button>
+          </div>
+        </div>
+
+        <section class="play-area" aria-label="Play area">
+          <div class="balloon-wrap">
+            <button id="balloon" class="balloon" type="button" aria-label="Reveal balloon"></button>
+            <p class="balloon-hint">Right-click the balloon to reveal the full word.</p>
+          </div>
+          <output id="display" class="display" aria-live="polite">_ _ _ _ _</output>
+          <p id="status" class="status">Enter a phrase to begin.</p>
+        </section>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
